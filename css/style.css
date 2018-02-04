@@ -1,0 +1,39 @@
+/*
+body {
+    background-image: url("../images/Mountain.jpg");
+}
+*/
+
+html, body {
+    width: 100%;
+}
+
+.image_container {
+    width: 100%;
+/*    height: 100%;*/
+}
+
+.scripture {
+    margin-left: 25%;
+    margin-top: 10%;    
+    text-align: center;
+    width: 50%;
+    font-size: 20px;
+    color: white;
+    position: absolute; 
+    z-index: 999999;
+}
+
+/*
+
+.image-show-1 {
+    width: 100%;
+    height: 100% !important;
+    background-image: url("../images/Mountain.jpg");
+}
+
+.image-show-2 {
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/decline_sea_calm_evening_1276_2560x1440.jpg");
+}*/

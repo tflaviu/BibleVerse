@@ -1,22 +1,65 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <!--        Slick-->
+        <link rel="stylesheet" type="text/css" href="vendors/slick-1.8.0/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="vendors/slick-1.8.0/slick/slick-theme.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!--        jQuery-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="vendors/slick-1.8.0/slick/slick.js"></script>
+        <script type="text/javascript" src="vendors/slick-1.8.0/slick/slick.min.js"></script>
+        <script src="js/slideshow.js"></script>
+        <script src="js/getBible.js"></script>
     </head>
     <body>
-        <div id="scripture"></div>
-        
-        <script src="js/getBible.js"></script>
-        <script>
-            $.getJSON( "books.json", function( json ) {
-                var book = Math.floor((Math.random() * 3 ) + 1);
-                var book_name = json[book].name;
-                var chapter = Math.floor((Math.random() * json[book].nr_chapters) + 1);
-                var verse = Math.floor((Math.random() * json[book].chapters[chapter]) + 1);
 
-                getVerse("passage=" + book_name + " " + chapter + ":" + verse + "&ver=cornilescu");
+        <!--        <div class="container-fluid">-->
+        <!--            <div class="row">-->
 
-            });
-        </script>
-    </body>
-</html>
+        <div class="container-fluid">
+            <span id="scripture" class="scripture"></span>
+            <div class="row">
+                <div class="image_container col-12 col-sm-12 col-md-12 col-lg-12">
+                    <img src="images/decline_sea_calm_evening_1276_2560x1440.jpg"/>
+                    <img src="images/Mountain.jpg"/>
+                </div> 
+            </div>
+        </div>
+            <!--        </div>-->
+
+            <div class="container">
+
+            </div>
+
+            <script type="text/javascript">
+
+                $( document ).ready(function() {
+                    $('.image_container').slick();
+                    $('.image_container').slick({
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        autoplay: true,
+                        autoplaySpeed: 2000,
+                    }); 
+                });
+
+            </script>
+
+
+
+            <script>
+                $.getJSON( "books.json", function( json ) {
+                    var book = Math.floor((Math.random() * 3 ) + 1);
+                    var book_name = json[book].name;
+                    var chapter = Math.floor((Math.random() * json[book].nr_chapters) + 1);
+                    var verse = Math.floor((Math.random() * json[book].chapters[chapter]) + 1);
+
+                    getVerse("passage=" + book_name + " " + chapter + ":" + verse + "&ver=cornilescu");
+
+                });
+            </script>
+            </body>
+        </html>
